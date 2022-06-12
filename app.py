@@ -101,7 +101,7 @@ def get_prediction(image: Image.Image) -> str:
     return predicted_label
 
 def get_request_address():
-    return f"http://{request.host}/predict"
+    return f"https://{request.host}/predict"
 
 
 if __name__ == '__main__':
