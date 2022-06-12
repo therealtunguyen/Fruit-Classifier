@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruit Classifier</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/jpeg;base64,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">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+    <div class="div1 container-md">
+      <h1>Fruit Classifier</h1>
+    </div>
+    <div class="div2">
+      <form
+        action="{{ request_url }}"
+        method="post"
+        enctype="multipart/form-data"
+        class=""
+      >
+        <div class="form-group input-1">
+          <label class="label-file">Upload an image</label>
+          <input id="file" class="file" type="file" name="image" accept="image/*"/>
+        </div>
+        <div class="form-group input-2">
+          <label class="label-link">Or an image URL</label>
+          <input id="url" class="url" type="text" name="url" />
+        </div>
+        <button class="btn btn-outline-danger">Upload</button>
+      </form>
+      <div class="prediction">
+        {% if has_image %}
+          {% if not from_url %}
+            <img src="{{ url_for('static', filename=filename) }}" class="input-image"></img>
+          {% else %}
+            <img src="{{ url }}" class="input-image"></img>
+          {% endif %}
+        {% else %}
+          <img class="input-image" alt="Your image"></img>
+        {% endif %}
+        <div class="predict-text">{{ prediction }}</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const form = document.querySelector('form');
+    const file = document.querySelector('#file');
+    const imageURL = document.querySelector('#url');
+    const inputImage = document.querySelector('.input-image');
+    const prediction = document.querySelector('.predict-text');
+
+    if (inputImage.src == '') {
+      inputImage.classList.add('hidden');
+    }
+
+    showImageFromFile = () => {
+      const file = document.querySelector('#file');
+      const fileReader = new FileReader();
+      try {
+        fileReader.readAsDataURL(file.files[0]);
+      } catch(err) {
+        console.log(err);
+      }
+
+      fileReader.onload = (e) => {
+        inputImage.src = e.target.result;
+      };
+      inputImage.classList.remove('hidden');
+      prediction.innerHTML = '';
+    }
+
+    showImageFromURL = () => {
+      const url = document.querySelector('#url');
+      // if the url is a server directory form
+      // fetch the image from the url
+      if (url.value.startsWith('/')) {
+        fetch(url.value)
+        .then(res => res.blob())
+        .then(blob => {
+          inputImage.src = URL.createObjectURL(blob);
+        })
+        .catch(err => {
+          console.log(err);
+          alert('Invalid URL');
+        });
+      } else {
+        inputImage.src = url.value;
+      }
+      inputImage.classList.remove('hidden');
+      prediction.innerHTML = '';
+    }
+
+    file.addEventListener('change', showImageFromFile);
+    imageURL.addEventListener('change', showImageFromURL);
+
+    form.addEventListener('submit', (e) => {
+      const hasFile = file.files.length > 0;
+      const hasURL = imageURL.value.length > 0;
+      if (!(hasFile ^ hasURL)) {
+        alert('Only one input is allowed');
+        e.preventDefault();
+      }
+    });
+  </script>
+</html>

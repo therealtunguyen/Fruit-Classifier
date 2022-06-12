@@ -1,0 +1,6 @@
+.venv
+data
+models/*
+utils/__pycache__
+app/__pycache__
+models
