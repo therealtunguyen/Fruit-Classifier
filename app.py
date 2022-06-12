@@ -14,7 +14,7 @@ from utils import get_labels, remove_number, get_image_from_url, delete_in_folde
 
 PORT = 8000
 IMG_SIZE = 299
-UPLOAD_FOLDER = 'app/static/'
+UPLOAD_FOLDER = 'static/'
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
