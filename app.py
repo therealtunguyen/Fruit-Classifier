@@ -1,3 +1,7 @@
+"""
+This file is the main file used for deploying onto Heroku.
+"""
+
 import sys
 import os
 
@@ -25,8 +29,7 @@ def home():
 
 @app.route('/api', methods=['POST'])
 def api():
-
-    # Get the image from the request
+    # Get the image from the request.
     img = request.files['image']
     if img.filename == '':
         return jsonify({'error': 'No image selected'})
@@ -39,7 +42,7 @@ def api():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     """
-    This will render a page with the image and the prediction
+    This will render a page with the image and the prediction.
     """
     is_from_url = False
     if request.method == 'GET':

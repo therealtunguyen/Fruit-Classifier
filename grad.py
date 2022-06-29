@@ -1,3 +1,8 @@
+"""
+- This is the Gradio App file.
+- More information about Gradio here: https://gradio.app/getting_started/
+"""
+
 from tensorflow.keras.models import load_model
 import numpy as np
 import gradio as gr
@@ -9,7 +14,7 @@ labels = ['Apple Braeburn', 'Apple Crimson Snow', 'Apple Golden 1', 'Apple Golde
 
 def get_prediction(image: np.ndarray) -> str:
     """
-    Get the prediction of the image
+    Get the prediction of the image.
     """
     image = image.reshape(1, 299, 299, 3)
     image = image / 255.0
@@ -22,7 +27,7 @@ def get_prediction(image: np.ndarray) -> str:
 
 def get_predicted_labels(image) -> dict:
     """
-    Get the labels
+    - Get the confidences of every labels with the given image.
     """
     image = image.reshape(1, 299, 299, 3)
     image = image / 255.0
